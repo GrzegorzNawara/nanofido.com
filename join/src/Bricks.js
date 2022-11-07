@@ -1,9 +1,8 @@
 import React from 'react'
 import Brick from './components/Brick'
 import SimBrick from './components/SimBrick'
-import TeamBrick from './components/TeamBrick'
-import SetupBrick from './components/SetupBrick'
-import { cfgPathSim, translationsPL } from './config/AppConfig'
+import NameBrick from './components/NameBrick'
+import { translationsPL } from './config/AppConfig'
 import debug from './debug'
 
 
@@ -15,18 +14,7 @@ class Bricks extends React.Component {
 
   getStats = () => {
     clearInterval(this.getStatsTimer);
-    if(this.props.bricks && this.props.bricks.filter((b)=>b.type==='SIM').length>0){
-      fetch('https://api.ignifer-labs.com/sparta/api_read_results.php',{
-        method: 'post',
-        body: JSON.stringify(
-          this.props.bricks.filter((b)=>b.type==='SIM').map((b)=>(b.id))
-      )})
-        .then(result => result.json())
-        .then(result => this.setState({ simStats: result }));
-      //this.getStatsTimer = setInterval(()=> this.getStats(), 8000);
-    } else {
-      //this.getStatsTimer = setInterval(()=> this.getStats(), 2000);
-    }
+    
   }
   
 
@@ -73,6 +61,11 @@ class Bricks extends React.Component {
                     look={JSON.parse(r.params).look}
                     linkTo={r.super+'/doc/'+JSON.parse(r.params).doc} />
                 )
+              case 'NAMEBRICK': return (
+                <NameBrick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                  look={JSON.parse(r.params).look}
+                  linkTo="" />
+              )
               case 'SIM':
                 return (
                     <React.Fragment key={'brick-f'+i}>

@@ -31,15 +31,15 @@ export const MenuConfig = {
       action: 'ADD_DOCUMENT',
       params: { doc:'rules_pl', look: 'lookDocument' }
     },
+    { title: 'Name Tag',
+      subtitle: 'Show name tags',
+      action: 'ADD_NAMEBRICK',
+      params: { look: 'lookDocument' }
+    },
     { title: 'New Sparta',
       subtitle: 'Start New Sparta Sim',
       action: 'ADD_SIM',
       params: { look: 'lookSimulation' }
-    },
-    { title: 'PAUSE',
-      subtitle: 'Pause on/off for Sparta Sim',
-      action: 'PAUSE_SIM',
-      params: { look: 'lookDocument' }
     },
     { title: 'UNDO',
       subtitle: 'Remove last item',
@@ -48,33 +48,6 @@ export const MenuConfig = {
     },
     { title: 'DELETE',
       subtitle: 'Remove this workshop',
-      action: 'DELETE_WORKSHOP',
-      params: { show: 'onEmpty', look: 'lookMenuClear' }
-    }
-  ],
-  PL:[
-    { title: 'Zasady (PL)',
-      subtitle: 'Sparta 500BC - Zasady',
-      action: 'ADD_DOCUMENT',
-      params: { doc:'rules_sparta_pl', look: 'lookDocument' }
-    },
-    { title: 'Nowa Sparta',
-      subtitle: 'Uruchom symulację',
-      action: 'ADD_SIM',
-      params: { look: 'lookSimulation' }
-    },
-    { title: 'PAUZA',
-      subtitle: 'Zatrzymanie/Wznowienie Symulacji',
-      action: 'PAUSE_SIM',
-      params: { look: 'lookDocument' }
-    },
-    { title: 'COFNIJ',
-      subtitle: 'Usuń ostatni element',
-      action: 'DELETE_LAST_BRICK',
-      params: { show: 'onNonEmpty', look: 'lookMenuClear' }
-    },
-    { title: 'USUŃ',
-      subtitle: 'Usuń ten warsztat',
       action: 'DELETE_WORKSHOP',
       params: { show: 'onEmpty', look: 'lookMenuClear' }
     }

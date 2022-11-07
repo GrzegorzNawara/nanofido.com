@@ -37,16 +37,6 @@ class MenuModal extends React.Component {
           type: 'SIM'
         });
         break;
-      case 'PAUSE_SIM':
-        console.log("PAUSE CLICKED");
-        this.props.bricks.forEach((b)=>{
-          if(b.type==='SIM')
-            simWriteMsg({
-              game:b.id,
-              team:0,
-              cmd:'PAU'});
-        })
-        break;
       case 'ADD_WORKSHOP':
         this.props.onAdd({
           ...newBrick,
@@ -69,6 +59,12 @@ class MenuModal extends React.Component {
         this.props.onAdd({
           ...newBrick,
           type: 'BRICK'
+        });
+        break;
+      case 'ADD_NAMEBRICK':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'NAMEBRICK'
         });
         break;
       case 'DELETE_LAST_BRICK':
