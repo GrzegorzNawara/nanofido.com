@@ -18,25 +18,18 @@ export const cfgSimWWW = process.env.NODE_ENV === 'development'
 
 export const MenuConfig = {
   topMenu: [{
-    title: 'New Workshop EN',
-    subtitle: 'New Sparta',
+    title: 'New Workshop',
+    subtitle: 'Create new workshop',
     action: 'ADD_WORKSHOP',
     lang:'EN',
-    params: { title: 'Simulation Workshop', subtitle:'Sparta 500BC', look: 'lookWorkshop' }
-  },
-  {
-    title: 'Nowy Warsztat PL',
-    subtitle: 'Nowa Sparta',
-    action: 'ADD_WORKSHOP',
-    lang:'PL',
-    params: { title: 'Simulation Workshop', subtitle:'Sparta 500BC', look: 'lookWorkshop' }
+    params: { title: 'Simulation Workshop', subtitle:'Nano feedback by nanofido.com', look: 'lookWorkshop' }
   }],
   workshopMenu:{
   EN:[
-    { title: 'Rules (EN)',
-      subtitle: 'Sparta 500BC - Rules',
+    { title: 'Rules (PL)',
+      subtitle: 'Short intro to nano feedback',
       action: 'ADD_DOCUMENT',
-      params: { doc:'rules_sparta_en', look: 'lookDocument' }
+      params: { doc:'rules_pl', look: 'lookDocument' }
     },
     { title: 'New Sparta',
       subtitle: 'Start New Sparta Sim',
