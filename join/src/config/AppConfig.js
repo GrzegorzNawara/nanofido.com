@@ -5,16 +5,16 @@ export const cfgMode = process.env.NODE_ENV === 'development'
   :''
 
 export const cfgPath = process.env.NODE_ENV === 'development'
-  ?'http://127.0.0.1/api/sparta/join'
-  :'https://api.ignifer-labs.com/sparta/join'
+  ?'http://127.0.0.1/api/nanofido/join'
+  :'https://api.ignifer-labs.com/nanofido/join'
 
 export const cfgPathSim = process.env.NODE_ENV === 'development'
-  ?'http://127.0.0.1/api/sparta/sim'
-  :'https://api.ignifer-labs.com/sparta/sim'
+  ?'http://127.0.0.1/api/nanofido/sim'
+  :'https://api.ignifer-labs.com/nanofido/sim'
 
 export const cfgSimWWW = process.env.NODE_ENV === 'development'
   ?'http://127.0.0.1:3001'
-  :'https://sparta.ignifer-labs.com/sim'
+  :'https://nanofido.com/sim'
 
 export const MenuConfig = {
   topMenu: [{
