@@ -15,7 +15,6 @@ import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import Document from './components/Document'
 import LicenceCheck from './LicenceCheck'
-import Score from './components/Score'
 //import debug from './debug'
 
 const appName = 'sparta.join'
@@ -167,12 +166,6 @@ render () { return (
           <Route exact path='/:owner/:super/doc/:document_id'
             render={({match})=>
               <Document documentName={match.params.document_id} />} />
-          <Route path="/:owner/:workshopId/score" render={({match})=>
-            <Score
-              me={this.state.me}
-              workshopId={match.params.workshopId}
-              lang={this.state.workshop.lang}
-              simState={this.state.simState} />} />
           <Route path="/:owner/:workshopId" render={({match})=>
             <Bricks
               owner={match.params.owner}

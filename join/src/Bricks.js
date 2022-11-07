@@ -3,7 +3,6 @@ import Brick from './components/Brick'
 import SimBrick from './components/SimBrick'
 import TeamBrick from './components/TeamBrick'
 import SetupBrick from './components/SetupBrick'
-import ChatBrick from './components/ChatBrick'
 import { cfgPathSim, translationsPL } from './config/AppConfig'
 import debug from './debug'
 
