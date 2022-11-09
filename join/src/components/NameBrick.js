@@ -1,18 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import simWriteMsg from '../database/simWriteMsg'
 import { cssStyles } from '../config/AppConfig'
 //import debug from '../debug'
 
-const NameBrick = ({ title, subtitle, score, look, linkTo }) => (
+const NameBrick = ({workshopId, title, subtitle, look, state, setState }) => (
   <div className="col-12 px-1">
     <div className="rounded p-3 m-1 mb-2 align-items-center" style={cssStyles[look]} >
       <h4>{title}</h4>
       <div>{subtitle}</div>
       
       <div className="input-group input-group-lg">
-        <input type="text" className="form-control" ariaLabel="Large" ariaDescribedBy="inputGroup-sizing-sm" />
+        <input 
+          onChange={(e)=>setState({...state, nameTag:e.target.value, nameTagSaved:0})}
+          type="text" 
+          className="form-control" 
+          aria-label="Large" 
+          aria-describedby="inputGroup-sizing-sm" />
         <div className="input-group-prepend">
-          <span className="btn btn-outline-secondary" id="inputGroup-sizing-lg">OK</span>
+          <span className={(state.nameTagSaved)?"btn btn-success":"btn btn-outline-secondary"} id="inputGroup-sizing-lg"
+          onClick={()=>{
+            console.log(state);
+            setState({...state, nameTagSaved:1})
+            simWriteMsg({
+              workshop:workshopId,
+              person:localStorage.getItem('me'),
+              cmd:'TAG',
+              name:state.nameTag })
+          }}>{(state.nameTagSaved)?'OK':'SAVE'}</span>
         </div>
       </div>
 

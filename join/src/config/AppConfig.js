@@ -10,11 +10,11 @@ export const cfgPath = process.env.NODE_ENV === 'development'
 
 export const cfgPathSim = process.env.NODE_ENV === 'development'
   ?'http://127.0.0.1/api/nanofido/sim'
-  :'https://api.ignifer-labs.com/nanofido/sim'
+  :'https://api.ignifer-labs.com/nanofido/fido'
 
 export const cfgSimWWW = process.env.NODE_ENV === 'development'
   ?'http://127.0.0.1:3001'
-  :'https://nanofido.com/sim'
+  :'https://nanofido.com/fido'
 
 export const MenuConfig = {
   topMenu: [{
@@ -55,13 +55,13 @@ export const MenuConfig = {
 }
 
 const theme = {
-    mainColorBg: '#4d4d4d',
+    mainColorBg: '#44a4b9',
     mainColor: '#ffffff',
-    secondaryColorBg: '#a70000',
+    secondaryColorBg: '#44a4b9',
     secondaryColor: '#ffffff'
 }
 export const cssStyles = {
-  logo: { navBar: 'images/logo.png',
+  logo: { navBar: 'images/logo-color.png',
           white: 'images/logo-white.png'
         },
 
@@ -80,7 +80,7 @@ export const cssStyles = {
 
   lookGate: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
   lookWorkshop: { backgroundColor:theme.mainColorBg, color:theme.mainColor },
-  lookDocument: { backgroundColor:'#dddddd', color:'#333333' },
+  lookDocument: { backgroundColor:'#b4d8de', color:'#132e35' },
 
   lookTeamActive: { backgroundColor:'#c70000', color:'#ffffff' },
   lookTeamInactive: { backgroundColor:'#888888', color:'#ffffff' },

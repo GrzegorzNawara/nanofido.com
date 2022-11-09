@@ -17,11 +17,13 @@ import Document from './components/Document'
 import LicenceCheck from './LicenceCheck'
 //import debug from './debug'
 
-const appName = 'sparta.join'
+const appName = 'nanofido.join'
 const initialState = {
-  varsion:'1.0',
+  version:'1.0.1',
 
   mg: '',
+  nameTag: '',
+  nameTagSaved: 0,
   pin: localStorage.getItem('gateCode'),
   workshops: {
     pinWorkshop: {},
@@ -114,14 +116,16 @@ render () { return (
 
         <Switch>
           <Route exact path="/" render={({match})=>
-            <NavBar mg={this.state.mg} />} />
+            <NavBar 
+              state={this.state}
+            />} />
           <Route exact path="/:owner/:workshopId" render={({match})=>
             <MiniNavBar
-              mg={this.state.mg}
+              state={this.state}
               link='/' />} />
           <Route path="/:owner/:workshopId" render={({match})=>
             <MiniNavBar
-              mg={this.state.mg}
+              state={this.state}
               link={'/'+match.params.owner+'/'+match.params.workshopId} />} />
         </Switch>
 
@@ -172,7 +176,7 @@ render () { return (
               super={match.params.workshopId}
               workshopId={match.params.workshopId}
               lang={this.state.workshop.lang}
-              state={this.state}
+              state={this.state} setState={(state) => this.setState(state)}
               mg={this.state.mg}
               seed={this.state.workshop.PIN}
               bricks={this.state.bricks} />} />
