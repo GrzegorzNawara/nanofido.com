@@ -11,6 +11,7 @@ const NameBrick = ({workshopId, title, subtitle, look, state, setState }) => (
       <div className="input-group input-group-lg">
         <input 
           onChange={(e)=>setState({...state, nameTag:e.target.value, nameTagSaved:0})}
+          value={state.nameTag}
           type="text" 
           className="form-control" 
           aria-label="Large" 
