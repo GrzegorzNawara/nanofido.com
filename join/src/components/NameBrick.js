@@ -7,7 +7,6 @@ const NameBrick = ({workshopId, title, subtitle, look, state, setState }) => (
   <div className="col-12 px-1">
     <div className="rounded p-3 m-1 mb-2 align-items-center" style={cssStyles[look]} >
       <h4>{title}</h4>
-      <div>{subtitle}</div>
       
       <div className="input-group input-group-lg">
         <input 
@@ -17,7 +16,7 @@ const NameBrick = ({workshopId, title, subtitle, look, state, setState }) => (
           aria-label="Large" 
           aria-describedby="inputGroup-sizing-sm" />
         <div className="input-group-prepend">
-          <span className={(state.nameTagSaved)?"btn btn-success":"btn btn-outline-secondary"} id="inputGroup-sizing-lg"
+          {(state.nameTag!=='')?<span className={(state.nameTagSaved)?"btn btn-success":"btn btn-danger"} id="inputGroup-sizing-lg"
           onClick={()=>{
             console.log(state);
             setState({...state, nameTagSaved:1})
@@ -26,11 +25,9 @@ const NameBrick = ({workshopId, title, subtitle, look, state, setState }) => (
               person:localStorage.getItem('me'),
               cmd:'TAG',
               name:state.nameTag })
-          }}>{(state.nameTagSaved)?'OK':'SAVE'}</span>
+          }}>{(state.nameTagSaved)?'OK':'SAVE'}</span>:null}
         </div>
       </div>
-
-      <div>{localStorage.getItem('me')}</div>
       
 
     </div>
