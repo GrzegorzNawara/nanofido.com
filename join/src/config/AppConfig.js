@@ -13,7 +13,7 @@ export const cfgPathSim = process.env.NODE_ENV === 'development'
   :'https://api.ignifer-labs.com/nanofido/fido'
 
 export const cfgSimWWW = process.env.NODE_ENV === 'development'
-  ?'http://127.0.0.1:3001'
+  ?'http://127.0.0.1:3001/fido'
   :'https://nanofido.com/fido'
 
 export const MenuConfig = {
@@ -36,9 +36,9 @@ export const MenuConfig = {
       action: 'ADD_NAMEBRICK',
       params: { look: 'lookDocument' }
     },
-    { title: 'New Sparta',
-      subtitle: 'Start New Sparta Sim',
-      action: 'ADD_SIM',
+    { title: 'NANOFIDO',
+      subtitle: 'Open nanofido',
+      action: 'OPEN_FIDO',
       params: { look: 'lookSimulation' }
     },
     { title: 'UNDO',

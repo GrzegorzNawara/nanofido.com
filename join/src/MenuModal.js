@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './components/MenuItem'
 import simWriteMsg from './database/simWriteMsg'
-import { cfgPathSim, MenuConfig } from './config/AppConfig'
+import { cfgSimWWW, MenuConfig } from './config/AppConfig'
 
 import debug from './debug'
 
@@ -24,18 +24,8 @@ class MenuModal extends React.Component {
     }
 
     switch (type) {
-      case 'ADD_SIM':
-        simWriteMsg({
-          game:newBrick.id,
-          team:0,
-          cmd:'INI'})
-        this.props.onAdd({
-          ...newBrick,
-          running:1,
-          title: menuItem.title,
-          subtitle: 'SIM',
-          type: 'SIM'
-        });
+      case 'OPEN_FIDO':
+        window.location.assign(cfgSimWWW+"/#/"+this.props.super)
         break;
       case 'ADD_WORKSHOP':
         this.props.onAdd({
