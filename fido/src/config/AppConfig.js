@@ -5,59 +5,22 @@ export const cfgMode = process.env.NODE_ENV === 'development'
   :''
 
 export const cfgPath = process.env.NODE_ENV === 'development'
+  ?'http://127.0.0.1/api/nanofido/fido'
+  :'https://api.ignifer-labs.com/nanofido/fido'
+
+export const cfgLicencePath = process.env.NODE_ENV === 'development'
   ?'http://127.0.0.1/api/nanofido/join'
   :'https://api.ignifer-labs.com/nanofido/join'
 
-export const cfgPathSim = process.env.NODE_ENV === 'development'
-  ?'http://127.0.0.1/api/nanofido/sim'
-  :'https://api.ignifer-labs.com/nanofido/sim'
 
 export const cfgSimWWW = process.env.NODE_ENV === 'development'
   ?'http://127.0.0.1:3001'
-  :'https://nanofido.com/sim'
-
-export const MenuConfig = {
-  topMenu: [{
-    title: 'New Workshop',
-    subtitle: 'Create new workshop',
-    action: 'ADD_WORKSHOP',
-    lang:'EN',
-    params: { title: 'Simulation Workshop', subtitle:'Nano feedback by nanofido.com', look: 'lookWorkshop' }
-  }],
-  workshopMenu:{
-  EN:[
-    { title: 'Rules (PL)',
-      subtitle: 'Short intro to nano feedback',
-      action: 'ADD_DOCUMENT',
-      params: { doc:'rules_pl', look: 'lookDocument' }
-    },
-    { title: 'Name Tag',
-      subtitle: 'Show name tags',
-      action: 'ADD_NAMEBRICK',
-      params: { look: 'lookDocument' }
-    },
-    { title: 'New Sparta',
-      subtitle: 'Start New Sparta Sim',
-      action: 'ADD_SIM',
-      params: { look: 'lookSimulation' }
-    },
-    { title: 'UNDO',
-      subtitle: 'Remove last item',
-      action: 'DELETE_LAST_BRICK',
-      params: { show: 'onNonEmpty', look: 'lookMenuClear' }
-    },
-    { title: 'DELETE',
-      subtitle: 'Remove this workshop',
-      action: 'DELETE_WORKSHOP',
-      params: { show: 'onEmpty', look: 'lookMenuClear' }
-    }
-  ]}
-}
+  :'https://nanofido.com/fido'
 
 const theme = {
-    mainColorBg: '#4d4d4d',
-    mainColor: '#ffffff',
-    secondaryColorBg: '#a70000',
+    mainColorBg: '#44a4b9',
+    mainColor: '#000000',
+    secondaryColorBg: '#44a4b9',
     secondaryColor: '#ffffff'
 }
 export const cssStyles = {
@@ -65,9 +28,10 @@ export const cssStyles = {
           white: 'images/logo-white.png'
         },
 
-  lookSpinner: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
 
-  lookDefault: { backgroundColor:'#aaaaff', color:'#555555' },
+  lookNavbar: { backgroundColor:theme.mainColorBg, color:theme.mainColor },
+
+  lookDefault: { backgroundColor:'#b4d8de', color:'#1d4650' },
   lookChat: { backgroundColor:'#555555', color:'#ffffff' },
   lookMenu: { backgroundColor:'#2c97cf', color:'#ffffff' },
   lookMenuClear: { backgroundColor:'#ff0000', color:'#ffffff' },
@@ -99,27 +63,3 @@ export const cssStyles = {
   rankingUnchecked: { color:'#cccccc' }
 }
 
-export const translationsPL={
-  "Total":"Razem",
-  "Enemies":"Pokonani wrogowie",
-  "People, Fame, Civilisation":"Zaspokajanie miast",
-  "Goods Gathered and Delivered":"Zbieranie zasobów",
-  'Goods Gathered':'Wszystkie zebrane',
-  'Goods Delivered':'Zebrane dla miast',
-  'Factories':'Produkcja faktorii',
-  'People Saved':'Dostarczone dobra',
-  'Population':'Populacja',
-  'SCORE':'PUNKTACJA',
-  'Civilisation Influence':'Zaspokajanie miast',
-  'YEAR':'ROK',
-  'Civilisation Power':"Potęga cywilizacji",
-  "Roman":"Imperium rzymskie",
-  "Maya":"Majowie",
-  "Egyptian":"Egipcjanie",
-  "Mezopotamian":"Mezopotamia",
-  "Persians":"Persja",
-  "Spartans":"Spartanie",
-  "THE END":"SYM. ZAKOŃCZONA",
-  "PAUSED":"PAUZA",
-  "RUNNING":"AKTYWNA"
-}

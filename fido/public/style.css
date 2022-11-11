@@ -70,7 +70,7 @@ a, a:hover { text-decoration: none; }
   display: block;
   background-color: rgba(200, 200, 200, 0.9);
 }
-.logo-image { height: 70px; width: auto;}
+.logo-image { height: 40px; width: auto;}
 .micro-logo-image { height: 34px; width: auto; }
 .workshop-navbar { position: relative;}
 .edit-image { height: 36px; width: auto; position: absolute; top: 10px; right:16px}
