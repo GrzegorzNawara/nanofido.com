@@ -3,18 +3,20 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import MiniNavBar from './components/MiniNavBar'
 import LicenceCheck from './LicenceCheck'
 import Brick from './components/Brick'
+import Fidomap from './components/Fidomap'
+
 
 //import debug from './debug'
 
 const appName = 'nanofido.fido'
 const initialState = {
-  version:'1.0.1',
+  version:'1.0.2',
   mg: '',
   people: [
-    {name:'Puchatek', id:'1351353452345'},
-    {name:'Krzyś', id:'1351353452345'},
-    {name:'Kłapouchy', id:'1351353452345'},
-    {name:'Królik', id:'1351353452345'}
+    {name:'Puchatek', id:'111112123123'},
+    {name:'Krzyś', id:'2223123132123'},
+    {name:'Kłapouchy', id:'33333312312313'},
+    {name:'Królik', id:'4444442141231234'}
   ],
   categories: []
 }
@@ -61,18 +63,30 @@ render () { return (
           mg={this.state.mg}
           link='/' />
 
-        <div>
+        
+            
+        <Switch>            
+        <Route exact path="/:workshop" render={({match})=> 
           <div className="container py-2">
-            
-            {(this.state.people)?this.state.people.map((p,i) =>
-              <div className="row justify-content-center">
-                <Brick key={'brick1'} title={" "+(i+1)+". "+p.name} subtitle={p.id}
-                  look="lookDefault" />
-              </div>
-            ):null}
-            
+          {(this.state.people)?this.state.people.map((p,i) =>
+            <div className="row justify-content-center">
+              <Brick key={'brick'+i} title={" "+(i+1)+". "+p.name} subtitle={p.id}
+                look="lookDefault" linkTo={match.params.workshop+"/"+p.id} />
+            </div>
+          ):null}
           </div>
-      </div>
+        } />
+        <Route exact path="/:workshop/:person" render={({match})=> 
+          <div className="">
+            <Fidomap key={'fidomap'}
+                workshop={match.params.workshop}
+                person={match.params.person}
+                look="lookDefault" />
+          </div>
+        } />
+        </Switch>
+            
+          
         
 
       </div>
