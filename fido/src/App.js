@@ -10,8 +10,10 @@ import Fidomap from './components/Fidomap'
 
 const appName = 'nanofido.fido'
 const initialState = {
-  version:'1.0.2',
+  version:'1.1.2',
   mg: '',
+  x:0,
+  y:0,
   people: [
     {name:'Puchatek', id:'111112123123'},
     {name:'Krzyś', id:'2223123132123'},
@@ -59,10 +61,21 @@ render () { return (
         </Switch>
 
         
-        <MiniNavBar
-          mg={this.state.mg}
-          link='/' />
-
+        <Switch>            
+        <Route exact path="/:workshop" render={({match})=>
+          <MiniNavBar
+            workshop={match.params.workshop}
+            state={this.state}
+            link='/' />
+        } />
+        <Route exact path="/:workshop/:person" render={({match})=>
+          <MiniNavBar
+            workshop={match.params.workshop}
+            person={match.params.person}
+            state={this.state}
+            link='/' />
+        } />
+        </Switch>
         
             
         <Switch>            
@@ -70,8 +83,11 @@ render () { return (
           <div className="container py-2">
           {(this.state.people)?this.state.people.map((p,i) =>
             <div className="row justify-content-center">
-              <Brick key={'brick'+i} title={" "+(i+1)+". "+p.name} subtitle={p.id}
-                look="lookDefault" linkTo={match.params.workshop+"/"+p.id} />
+              <Brick key={'brick'+i} 
+                title={" "+(i+1)+". "+p.name} 
+                subtitle={p.id}
+                look="lookDefault" 
+                linkTo={match.params.workshop+"/"+p.id} />
             </div>
           ):null}
           </div>
@@ -81,6 +97,8 @@ render () { return (
             <Fidomap key={'fidomap'}
                 workshop={match.params.workshop}
                 person={match.params.person}
+                state={this.state}
+                setState={(state)=>this.setState(state)}
                 look="lookDefault" />
           </div>
         } />
