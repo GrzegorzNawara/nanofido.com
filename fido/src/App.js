@@ -10,8 +10,9 @@ import Fidomap from './components/Fidomap'
 
 const appName = 'nanofido.fido'
 const initialState = {
-  version:'1.1.2',
+  version:'1.2.2',
   mg: '',
+  cross:{x:200,y:300},
   x:0,
   y:0,
   people: [
@@ -19,6 +20,10 @@ const initialState = {
     {name:'Krzyś', id:'2223123132123'},
     {name:'Kłapouchy', id:'33333312312313'},
     {name:'Królik', id:'4444442141231234'}
+  ],
+  opinions:[
+    {x:795,y:390,title:'LeftCD',value:1},
+    {x:793,y:804,title:'BigPicture',value:1}
   ],
   categories: []
 }

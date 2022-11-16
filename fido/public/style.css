@@ -8,12 +8,21 @@ html {
   }
 }
 
+.fidomap-div {
+  width: 100%;
+  position: relative;
+}
+
 .fidomap-container {
   width: 100%;
   height: 90vh;
   overflow: auto; /* adds scrollbars */
   background-color: "#ffffff";
   position: relative;
+}
+
+.fidoBox {
+  width: 80px;
 }
 
 .mydoc {

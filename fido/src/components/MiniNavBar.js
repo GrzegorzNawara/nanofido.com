@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { cssStyles } from '../config/AppConfig'
 
 const MiniNavBar = ({state,workshop,person}) => (
-    <div className="navbar m-auto" style={cssStyles.lookNavbar}>
+    <div id="miniNavbar" className="navbar m-auto" style={cssStyles.lookNavbar}>
       <div className="col-xs-2">
         <img className="logo-image" alt="logo" src={cssStyles.logo.navBar}></img>
       </div>
       {(person)?<div>
-        {Math.round(state.x/100)} {Math.round(state.y/100)} 
+        {state.x+state.cross.x}-{state.y+state.cross.y-((document.getElementById("miniNavbar"))?document.getElementById("miniNavbar").offsetHeight:0)}
       </div>:null}
       {(person)?
         <div className="col-xs-2 text-right">
